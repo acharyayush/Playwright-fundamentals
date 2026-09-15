@@ -4,7 +4,7 @@ from Browser.utils.data_types import SelectAttribute, SelectionStrategy, DialogA
 from time import sleep
 from utils import get_order_state, set_order_state
 from RPA.Tables import Tables
-
+from pathlib import Path
 URL = "https://qa-practice.razvanvancea.ro"
 CSV_BASE_PATH = "output/csv"
 browser = Playwright()
@@ -16,6 +16,10 @@ def solve_challenge():
     browser.new_browser(headless=False, slowMo=0)
     
     try:
+        #Create csv directory if it doesn't exist
+        dir_path = Path("output/csv")
+        dir_path.mkdir(parents=True, exist_ok=True)
+
         browser.new_page(URL)
         step_len = len(STEP_LIST)
         state = get_order_state(FILE_PATH)%step_len
