@@ -185,7 +185,7 @@ def alert():
 def file_upload():
     """Upload a file with the file path and click submit"""
     browser.go_to(URL+"/file-upload.html")
-    FILE_PATH = "/Users/aacs/Downloads/Level3_certificate.pdf"
+    FILE_PATH = "/Users/aacs/Desktop/Playwright/order_state.txt"
     browser.upload_file_by_selector("#file_upload", FILE_PATH)
     browser.click(".custom-file button[type=submit]")
 
