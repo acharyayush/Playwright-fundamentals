@@ -1,0 +1,17 @@
+# For more details on the format and content:
+# https://github.com/robocorp/rcc/blob/master/docs/recipes.md#what-is-in-condayaml
+# Tip: Adding a link to the release notes of the packages helps maintenance and security.
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.10.14                 # https://pyreadiness.org/3.13
+  - nodejs=22.9.0
+  - pip=24.0
+  - pip:
+      - robotframework-browser==18.8.1
+      - rpaframework==31.1.2
+      - robocorp-tasks
+rccPostInstall:
+  - rfbrowser init
